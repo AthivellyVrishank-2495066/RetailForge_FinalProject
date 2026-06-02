@@ -1,0 +1,106 @@
+RetailForge - Usage Guide
+
+1. Compile the Project
+
+$ cd /workspaces/RetailForge
+$ make clean && make
+
+2. Run the Application
+
+$ ./retailforge
+
+3. Main Menu Options
+
+1. Product Management
+2. Supplier Management
+3. Sales & Purchases
+4. Reports & Analytics
+5. Forecasting & Alerts
+6. System Backup/Restore
+0. Exit
+
+4. Product Management Workflows
+
+- Add New Product
+  • Choose perishable or non-perishable
+  • Enter ID, name, category, supplier ID, stock, reorder level, cost, price
+  • Enter expiry and shelf life for perishable products
+  • Enter batch number and warranty for non-perishable products
+
+- View All Products
+  • Displays all inventory items with summary details
+
+- Search Product by ID or Name
+  • Find an item and view its full details
+
+- Update Product
+  • Adjust stock, reorder threshold, or pricing
+
+- Delete Product
+  • Remove product from inventory and CSV storage
+
+- Filter Products
+  • Filter by category or stock range
+
+5. Supplier Management Workflows
+
+- Add New Supplier
+  • Enter supplier ID, name, contact, lead time, reliability score
+
+- View All Suppliers
+  • Displays supplier records
+
+- Search Supplier by ID
+  • Locate supplier details quickly
+
+- Update Supplier
+  • Modify contact, lead time, or reliability data
+
+- Delete Supplier
+  • Remove supplier record from inventory
+
+6. Sales & Purchase Workflows
+
+- Record a Sale
+  • Enter product ID and quantity
+  • System checks current stock and updates inventory
+  • Transaction is recorded to `transactions.csv` and `sales.log`
+
+- Record a Purchase
+  • Add stock for an existing product
+  • Transaction records purchase details
+
+- View Sales History
+  • Displays recent sales and purchase transactions
+
+7. Forecasting & Alerts
+
+- View Pending Alerts
+  • Lists low stock and near-expiry alerts
+
+- Calculate Moving Average
+  • Enter product ID and time window for demand smoothing
+
+- Predict Demand
+  • Enter product ID and days ahead for prediction
+
+- Suggest Reorder Quantity
+  • Calculates reorder amount based on demand and stock levels
+
+- Generate All Alerts
+  • Produces a queue of pending inventory alerts
+
+8. Reports & Analytics
+
+- Low Stock Items
+- Near Expiry Items
+- Top 20 Best-Selling Products
+- Slow-Moving Products
+- Category-wise Profit & Loss
+- Supplier Performance Report
+- System Dashboard
+
+9. Exit
+
+- Choose option 0 from the main menu.
+- The system saves data before exit.

@@ -1,0 +1,61 @@
+RetailForge - Project Summary
+
+RetailForge is a complete C++98 inventory management application for retail operations. It includes product and supplier management, sales and purchase recording, forecasting, reporting, and backup/restore support.
+
+Core Implementation
+-------------------
+- Central controller: `InventoryManager`
+- Abstract base class: `Product`
+- Derived product types: `PerishableProduct`, `NonPerishableProduct`
+- Supplier model: `Supplier`
+- Transaction model: `SalesTransaction`
+- Data containers: `std::map`, `std::vector`, `std::queue`, `std::set`
+
+Source Code Files
+-----------------
+- `main.cpp`                  : CLI menu interface
+- `product.h` / `product.cpp` : Product hierarchy and CSV operations
+- `supplier.h` / `supplier.cpp` : Supplier data and file handling
+- `salestransaction.h` / `salestransaction.cpp` : Transaction recording and profit calculation
+- `inventorymanager.h` / `inventorymanager.cpp` : Business logic and module orchestration
+- `Makefile`                  : Build configuration
+
+Data Files
+----------
+- `products.csv`    : Product inventory data
+- `suppliers.csv`   : Supplier master data
+- `transactions.csv`: Transaction history for sales and purchases
+- `forecast.csv`    : Forecast records and demand analytics
+- `sales.log`       : Append-only transaction audit log
+- `backup.dat`      : Binary backup file for restore operations
+
+Key Features
+------------
+- Product CRUD operations with type-specific behavior
+- Supplier management with reliability and lead time support
+- Sales and purchase recording with inventory updates
+- Forecasting using moving averages and trend analysis
+- Low stock and expiry alert generation
+- Reports for best-sellers, slow movers, category P&L, and supplier performance
+- Backup and restore of system state
+- Uses C++98-compatible STL containers and algorithms
+
+Build and Run
+-------------
+1. Build
+   $ cd /workspaces/RetailForge
+   $ make clean && make
+
+2. Run
+   $ ./retailforge
+
+Project Status
+--------------
+- Implementation complete and ready for use
+- Designed for extensibility with modular source files
+- Uses standard C++98 and no external libraries
+
+Notes
+-----
+- The project is organized to support future expansions, including additional product types, improved forecasting methods, and extended reporting dashboards.
+- Current deployment is console-based, with data persistence provided by CSV and binary file formats.
