@@ -1,5 +1,5 @@
-productID,name,category,supplierID,currentStock,reorderLevel,unitPrice,expiryDate,shelfLifeDays,batchNumber,warrantyMonths,totalSold
-3,3,3,3,3,3,3,3,,,3,3,0
+productID,name,category,supplierID,currentStock,reorderLevel,costPrice,unitPrice,expiryDate,shelfLifeDays,batchNumber,warrantyMonths,totalSold
+3,3,3,3,3,3,3,3,,0,0,0,0
 P002,Parle-G Biscuit 200g,Snacks,SUP002,100,100,7,10,,0,0,0,4210
 P003,Head & Shoulders Shampoo,Personal Care,SUP003,67,20,100,145,,0,0,0,567
 P004,Fortune Sunflower Oil 1L,Oil & Ghee,SUP001,134,30,130,185,,0,0,0,890

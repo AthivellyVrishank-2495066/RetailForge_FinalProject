@@ -137,17 +137,31 @@ void displayMenuBox(const std::vector<std::pair<std::string, const char*> >& con
         std::cout << "\n";
     }
 
-    int leftPadding = std::max(0, (termWidth - boxWidth - 2) / 2);
+    int leftPadding = std::max(0, (termWidth - boxWidth - 4) / 2);
     std::string indent(leftPadding, ' ');
     std::string border(boxWidth, '=');
+    const int contentWidth = boxWidth - 4;
 
-    std::cout << indent << "╔" << border << "╗\n";
+    std::cout << indent << "+" << border << "+\n";
     for (std::vector<std::pair<std::string, const char*> >::const_iterator entry = lines.begin();
          entry != lines.end(); ++entry) {
-        std::string centeredText = centerText(entry->first, boxWidth);
-        std::cout << indent << "║" << colorText(centeredText, entry->second) << "║\n";
+        std::string text = entry->first;
+        std::string displayText;
+
+        if (entry->second == ANSI_CYAN) {
+            displayText = centerText(text, contentWidth);
+        } else {
+            int padding = contentWidth - static_cast<int>(text.length());
+            if (padding < 0) {
+                displayText = text.substr(0, contentWidth);
+            } else {
+                displayText = text + std::string(padding, ' ');
+            }
+        }
+
+        std::cout << indent << "| " << colorText(displayText, entry->second) << "   |\n";
     }
-    std::cout << indent << "╚" << border << "╝\n";
+    std::cout << indent << "+" << border << "+\n";
 }
 
 void printDivider(int width = SCREEN_WIDTH) {
@@ -156,12 +170,12 @@ void printDivider(int width = SCREEN_WIDTH) {
 
 void printBoxedHeader(const std::string& title, const std::string& subtitle = "", int width = SCREEN_WIDTH) {
     std::string border(width, '=');
-    std::cout << "╔" << border << "╗\n";
-    std::cout << "║" << centerText(title, width) << "║\n";
+    std::cout << "+" << border << "+\n";
+    std::cout << "| " << centerText(title, width - 4) << "   |\n";
     if (!subtitle.empty()) {
-        std::cout << "║" << centerText(subtitle, width) << "║\n";
+        std::cout << "| " << centerText(subtitle, width - 4) << "   |\n";
     }
-    std::cout << "╚" << border << "╝\n";
+    std::cout << "+" << border << "+\n";
 }
 
 void clearScreen() {
@@ -782,9 +796,9 @@ void reportsModule() {
             
         } else if (choice == 7) {
             // Dashboard
-            std::cout << "\n╔═══════════════════════════════════════════╗\n";
-            std::cout << "║          SYSTEM DASHBOARD                 ║\n";
-            std::cout << "╚═══════════════════════════════════════════╝\n";
+            std::cout << "\n+===========================================+\n";
+            std::cout << "||          SYSTEM DASHBOARD                ||\n";
+            std::cout << "+===========================================+\n";
             std::cout << "Total Products: " << manager->getTotalProducts() << "\n";
             std::cout << "Total Suppliers: " << manager->getTotalSuppliers() << "\n";
             std::cout << "Total Sales Transactions: " << manager->getTotalSalesTransactions() << "\n";
